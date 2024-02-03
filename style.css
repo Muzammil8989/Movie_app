@@ -1,0 +1,208 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css);
+:root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+    --dark-color:#22254b ;
+    --light-color: #f4f4f4;
+}
+
+
+.mode {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 37px;
+    right: 19rem;
+    font-size: 1.5rem;
+   
+
+}
+.fa-moon{
+    color: #22254b;
+    font-size: 1.5rem;
+}
+.fa-sun{
+    color: var(--light-color);
+    font-size: 1.5rem;
+}
+.dark-mode {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.light-mode {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Handle on active/drag */
+::-webkit-scrollbar-thumb:active {
+    background: var(--primary-color);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the background color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color); /* Set the color of the handle */
+    border-radius: 6px; /* Set the border radius of the handle */
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--primary-color);
+}
+header{
+    padding: 20px 35px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.search{
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.search:focus{
+    outline: none;
+    background-color: var(--primary-color);
+}
+.fa-search{
+    color: #fff;
+    position: absolute;
+    top: 6%;
+    right: 50px;
+    cursor: pointer; 
+}
+header h1{
+    color: #fff;
+    font-size: 2rem;
+}
+.search::placeholder{
+    color: #7378c5;
+}
+
+main{
+    display:flex;
+    flex-wrap: wrap;
+}
+.movie {
+    width: 100%; /* Set a default width for smaller screens */
+    max-width: 300px; /* Limit the maximum width */
+    margin: 1rem;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.movie:hover{
+    transform: scale(1.05);
+}
+.movie img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.movie-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    color: var(--primary-color);
+}
+.movie-info h3{
+    margin: 0;
+}
+.movie-info span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+.movie-info span.green{
+    color: lightgreen;
+}
+.movie-info span.orange{
+    color: orange;
+}
+.movie-info span.red{
+    color: red;
+}
+.overview {
+    background-color: var(--light-color); /* Default background color */
+    color: var(--dark-color); /* Default text color */
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.3s ease;
+}
+
+.dark-mode .overview {
+    background-color: var(--dark-color); /* Dark mode background color */
+    color: var(--light-color); /* Dark mode text color */
+}
+
+.movie:hover .overview{
+    transform: translateY(0);
+}
+@media (min-width: 768px) {
+   
+    /* Adjust styles for screens with a width of 768 pixels or larger */
+    .movie {
+        width: calc(33.33% - 2rem); /* For a three-column layout with some margin between movies */
+        max-width: none; /* Reset the maximum width for larger screens */
+    }
+
+}
+
+@media (min-width: 992px) {
+    /* Further adjustments for screens with a width of 992 pixels or larger */
+    .movie {
+        width: calc(25% - 2rem); /* For a four-column layout with some margin between movies */
+    }
+}
